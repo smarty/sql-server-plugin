@@ -1,0 +1,38 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Build .dll
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+    
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1
+      
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE
+      
+    - name: Restore Packages
+      run: nuget restore SmartySqlServerPlugin.sln
+      
+    - name: Build Solution
+      run: |
+       msbuild.exe SmartySqlServerPlugin.sln /p:configuration="Release" /p:platform="Any CPU" /p:OutputPath=.\output
+       
+    - name: release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: D:/a/smarty-sql-server-plugin/smarty-sql-server-plugin/SmartySqlServerPlugin/output/SmartySqlServerPlugin-merged.dll
