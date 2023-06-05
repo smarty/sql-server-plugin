@@ -4,9 +4,10 @@
 ### Table of Contents
 1. [Setup](#setup)
 2. [Supported Functions](#supported-functions)
-3. [Examples](#examples)
-4. [Building Library From Source](#building-library-from-scratch)
-5. [Contact](#contact)
+3. [Auth Setup](#auth-setup)
+4. [Examples](#examples)
+5. [Building Library From Source](#building-library-from-scratch)
+6. [Contact](#contact)
 
 ## Setup
    
@@ -14,16 +15,45 @@ Download `SmartySqlServerPlugin.dll` from the [releases](https://github.com/smar
 
 Set necessary configuration settings with the following commands:
 ```sql
+sp_configure 'show advanced options', 1;
+GO
+
+RECONFIGURE;
+GO
+
 sp_configure 'clr enabled', 1;
 GO
 
 RECONFIGURE;
 GO
 
+-- comment the following line out if using SQL Server 2012, 2014, or 2016
 sp_configure 'clr strict security', 0;
 GO
 
 RECONFIGURE;
+GO
+```
+
+Set up the database:
+
+```sql
+USE [master];
+GO 
+
+ALTER DATABASE [TestDatabase] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO 
+
+DROP DATABASE [TestDatabase];
+GO
+
+CREATE DATABASE [TestDatabase];
+GO
+
+USE [TestDatabase];
+GO
+
+ALTER DATABASE [TestDatabase] SET TRUSTWORTHY ON
 GO
 ```
 
@@ -39,6 +69,7 @@ Create the assembly for the Smarty plugin:
 ```sql
 CREATE ASSEMBLY [SmartySqlServerPlugin] FROM "C:\Path\to\plugin\SmartySqlServerPlugin.dll" WITH PERMISSION_SET = EXTERNAL_ACCESS
 ```
+
 Create any of the supported functions (see [below](#functions)) that you would like to use:
 
 ```sql
@@ -112,7 +143,7 @@ RETURNS TABLE
 EXTERNAL NAME [SmartySqlServerPlugin].[SmartySqlServerPlugin.USStreetApi].[SmartyUsStreetVerifyFreeform]
 ```
 
-Place your auth token and auth ID in a secure SQL table.
+Place your auth token and auth ID in a secure SQL table. See [Auth Setup](#auth-setup) for an example SQL query.
 
 . . . and add the variables to SQL:
 ```sql
@@ -120,7 +151,8 @@ DECLARE @AUTH_ID nvarchar(max), @AUTH_TOKEN nvarchar(max), @URL nvarchar(max)
 SELECT @AUTH_ID = auth_id FROM AuthDB.dbo.Auth
 SELECT @AUTH_TOKEN = auth_token FROM AuthDB.dbo.Auth
 
--- Only SET @URL if not using default value
+-- Only SET @URL if you are not using the default value (https://us-street.api.smartystreets.com/street-address)
+-- SELECT @URL = url FROM AuthDB.dbo.Auth
 ```
 
 The Smarty functions are now ready to use! :
@@ -283,6 +315,39 @@ RETURNS TABLE
     analysis_lacs_link_indicator nvarchar(1024) NULL,
     analysis_is_suite_link_match BIT NULL)
  EXTERNAL NAME [SmartySqlServerPlugin].[SmartySqlServerPlugin.USStreetApi].[SmartyUSStreetVerify];
+```
+
+## Auth Setup
+
+```sql
+USE [master];
+GO 
+
+ALTER DATABASE [AuthDB] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+GO 
+
+DROP DATABASE [AuthDB];
+GO
+
+CREATE DATABASE [AuthDB];
+GO
+
+USE [AuthDB];
+GO
+
+ALTER DATABASE [AuthDB] SET TRUSTWORTHY ON
+GO
+
+-- Only create url if you are not using the default value (https://us-street.api.smartystreets.com/street-address)
+CREATE TABLE Auth (
+	auth_id nvarchar(max),
+	auth_token nvarchar(max),
+  	-- url nvarchar(max)
+	)
+
+INSERT INTO Auth VALUES('auth_id', 'auth_token' /*, ''*/))
+
+SELECT * FROM Auth
 ```
 
 ## Examples
