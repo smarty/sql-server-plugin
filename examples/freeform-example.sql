@@ -115,7 +115,7 @@ DECLARE @AUTH_ID nvarchar(max), @AUTH_TOKEN nvarchar(max), @URL nvarchar(max)
 SELECT @AUTH_ID = auth_id FROM AuthDB.dbo.Auth
 SELECT @AUTH_TOKEN = auth_token FROM AuthDB.dbo.Auth
 
--- Only SET @URL if not using default value (https://us-street.api.smartystreets.com/street-address)
+-- Only SET @URL if you are not using the default value (https://us-street.api.smartystreets.com/street-address)
 -- SELECT @URL = url FROM AuthDB.dbo.Auth
 
 CREATE TABLE freeform_results
