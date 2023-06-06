@@ -23,6 +23,6 @@ CREATE TABLE Auth (
   	-- url nvarchar(max)
 	)
 
-INSERT INTO Auth VALUES('auth_id', 'auth_token' /*, ''*/))
+INSERT INTO Auth VALUES('auth_id', 'auth_token' /*, ''*/)
 
 SELECT * FROM Auth
