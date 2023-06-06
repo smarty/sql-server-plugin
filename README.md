@@ -371,3 +371,5 @@ Rebuilding the .dll can be accomplished by the following steps:
 ### Contact
 
 For questions contact [Smarty Support](https://www.smarty.com/contact/support)
+
+[Apache 2.0 License](LICENSE.md)
