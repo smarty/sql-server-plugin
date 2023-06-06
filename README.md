@@ -16,7 +16,7 @@ Compatible with SQL Server 2012 through 2022 for Windows.
 
 ## Setup
    
-Download `SmartySqlServerPlugin.dll` from the [releases](https://github.com/smarty/smarty-sql-server-plugin/releases/latest/) page. 
+Download `SmartySqlServerPlugin-merged.dll` from the [releases](https://github.com/smarty/smarty-sql-server-plugin/releases/latest/) page. 
 
 Set necessary configuration settings with the following commands:
 ```sql
