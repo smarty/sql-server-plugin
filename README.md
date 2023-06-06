@@ -12,7 +12,7 @@
 
 ## Requirements
 
-Compatible with SQL Server 2012 through 2022 for Windows.
+Compatible with SQL Server 2012, 2014, 2016, 2017, 2019, and 2022 for Windows.
 
 ## Setup
    
