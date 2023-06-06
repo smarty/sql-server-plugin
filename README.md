@@ -12,7 +12,7 @@
 
 ## Requirements
 
-Compatible with SQL Server 2012 through 2022 for Windows.
+Compatible with SQL Server 2012, 2014, 2016, 2017, 2019, and 2022 for Windows.
 
 ## Setup
    
@@ -350,7 +350,7 @@ CREATE TABLE Auth (
   	-- url nvarchar(max)
 	)
 
-INSERT INTO Auth VALUES('auth_id', 'auth_token' /*, ''*/))
+INSERT INTO Auth VALUES('auth_id', 'auth_token' /*, ''*/)
 
 SELECT * FROM Auth
 ```
@@ -369,5 +369,4 @@ Rebuilding the .dll can be accomplished by the following steps:
 
 ### Contact
 
-For questions contact Abbey Nelson (abbey@smarty.com) or Xan Johnson (xan@smarty.com)
-
+For questions contact [Smarty Support](https://www.smarty.com/contact/support)
