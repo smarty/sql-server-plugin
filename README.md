@@ -2,12 +2,17 @@
 
 
 ### Table of Contents
-1. [Setup](#setup)
-2. [Supported Functions](#supported-functions)
-3. [Auth Setup](#auth-setup)
-4. [Examples](#examples)
-5. [Building Library From Source](#building-library-from-scratch)
-6. [Contact](#contact)
+1. [Requirements](#requirements)
+2. [Setup](#setup)
+3. [Supported Functions](#supported-functions)
+4. [Auth Setup](#auth-setup)
+5. [Examples](#examples)
+6. [Building Library From Source](#building-library-from-scratch)
+7. [Contact](#contact)
+
+## Requirements
+
+Compatible with SQL Server 2012 through 2022 for Windows.
 
 ## Setup
    
