@@ -72,7 +72,7 @@ GO
 Create the assembly for the Smarty plugin:
 
 ```sql
-CREATE ASSEMBLY [SmartySqlServerPlugin] FROM "C:\Path\to\plugin\SmartySqlServerPlugin.dll" WITH PERMISSION_SET = EXTERNAL_ACCESS
+CREATE ASSEMBLY [SmartySqlServerPlugin] FROM "C:\Path\to\plugin\SmartySqlServerPlugin-merged.dll" WITH PERMISSION_SET = EXTERNAL_ACCESS
 ```
 
 Create any of the supported functions (see [below](#functions)) that you would like to use:
