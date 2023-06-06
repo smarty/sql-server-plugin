@@ -369,5 +369,4 @@ Rebuilding the .dll can be accomplished by the following steps:
 
 ### Contact
 
-For questions contact Abbey Nelson (abbey@smarty.com) or Xan Johnson (xan@smarty.com)
-
+For questions contact [Smarty Support](https://www.smarty.com/contact/support)
