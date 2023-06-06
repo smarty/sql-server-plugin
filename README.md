@@ -2,16 +2,21 @@
 
 
 ### Table of Contents
-1. [Setup](#setup)
-2. [Supported Functions](#supported-functions)
-3. [Auth Setup](#auth-setup)
-4. [Examples](#examples)
-5. [Building Library From Source](#building-library-from-scratch)
-6. [Contact](#contact)
+1. [Requirements](#requirements)
+2. [Setup](#setup)
+3. [Supported Functions](#supported-functions)
+4. [Auth Setup](#auth-setup)
+5. [Examples](#examples)
+6. [Building Library From Source](#building-library-from-scratch)
+7. [Contact](#contact)
+
+## Requirements
+
+Compatible with SQL Server 2012 through 2022 for Windows.
 
 ## Setup
    
-Download `SmartySqlServerPlugin.dll` from the [releases](https://github.com/smarty/smarty-sql-server-plugin/releases/latest/) page. 
+Download `SmartySqlServerPlugin-merged.dll` from the [releases](https://github.com/smarty/smarty-sql-server-plugin/releases/latest/) page. 
 
 Set necessary configuration settings with the following commands:
 ```sql
@@ -67,7 +72,7 @@ GO
 Create the assembly for the Smarty plugin:
 
 ```sql
-CREATE ASSEMBLY [SmartySqlServerPlugin] FROM "C:\Path\to\plugin\SmartySqlServerPlugin.dll" WITH PERMISSION_SET = EXTERNAL_ACCESS
+CREATE ASSEMBLY [SmartySqlServerPlugin] FROM "C:\Path\to\plugin\SmartySqlServerPlugin-merged.dll" WITH PERMISSION_SET = EXTERNAL_ACCESS
 ```
 
 Create any of the supported functions (see [below](#functions)) that you would like to use:

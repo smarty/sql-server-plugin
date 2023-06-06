@@ -38,7 +38,7 @@ GO
 CREATE ASSEMBLY [System.Runtime.Serialization] FROM 'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\System.Runtime.Serialization.dll' WITH PERMISSION_SET = UNSAFE;
 GO
 
-CREATE ASSEMBLY [Smarty.Plugins.SqlServer] FROM 'C:\path\to\SmartySqlServerPlugin.dll' WITH PERMISSION_SET = EXTERNAL_ACCESS;
+CREATE ASSEMBLY [Smarty.Plugins.SqlServer] FROM 'C:\path\to\SmartySqlServerPlugin-merged.dll' WITH PERMISSION_SET = EXTERNAL_ACCESS;
 GO
 
 CREATE FUNCTION SmartyUSStreetVerifyFreeform 
