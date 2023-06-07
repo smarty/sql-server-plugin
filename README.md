@@ -360,15 +360,29 @@ SELECT * FROM Auth
 
 See examples in `/examples`
 
-### Building library from scratch
+## Building the library
 
 Rebuilding the .dll can be accomplished by the following steps:
 
-1. Clone this repository
-2. Run `nuget restore`
-3. Build the solution
+NOTE: .NET Framework projects can only be built on Windows
 
-### Contact
+1. Clone this repository
+
+```
+git clone git@github.com:smarty/smarty-sql-server-plugin.git
+```
+
+2. Install [.NET Framework SDK v4.8](https://dotnet.microsoft.com/en-us/download/visual-studio-sdks) from Microsoft.
+3. Install [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/) to install MSBuild.
+4. Install [Nuget](https://www.nuget.org/downloads) package manager.
+5. Navigate to cloned repository
+6. Run `C:\path\to\nuget.exe restore` to install necessary dependencies.
+7. Build the solution with MSBuild. The merged output file will appear in `/smarty-sql-server-plugin/SmartySqlServerPlugin/bin/Release/`
+```
+&'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe' -property:Configuration=Release
+```
+
+## Contact
 
 For questions contact [Smarty Support](https://www.smarty.com/contact/support)
 
