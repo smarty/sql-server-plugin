@@ -68,12 +68,6 @@
         <Message Text="Merging: @(MergeAssemblies->'%(Filename)') into $(OutputAssembly)" Importance="High" />
         <Exec Command="$(Merger) /parallel /out:$(OutputPath)\SmartySqlServerPlugin-merged.dll @(MergeAssemblies->'&quot;%(FullPath)&quot;', ' ')" />
     </Target>
-    <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-      <PropertyGroup>
-        <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
-      </PropertyGroup>
-      <Error Condition="!Exists('..\packages\ILRepack.2.0.18\build\ILRepack.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILRepack.2.0.18\build\ILRepack.props'))" />
-    </Target>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
          Other similar extension points exist, see Microsoft.Common.targets.
     <Target Name="BeforeBuild">
