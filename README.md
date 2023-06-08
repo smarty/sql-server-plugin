@@ -382,9 +382,9 @@ git clone git@github.com:smarty/smarty-sql-server-plugin.git
 2. Install [.NET Framework SDK v4.8](https://dotnet.microsoft.com/en-us/download/visual-studio-sdks) from Microsoft.
 3. Install [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/) to install MSBuild.
 4. Install [Nuget](https://www.nuget.org/downloads) package manager.
-5. Navigate to cloned repository
+5. Navigate `src` in cloned repository
 6. Run `C:\path\to\nuget.exe restore` to install necessary dependencies.
-7. Build the solution with MSBuild. The merged output file will appear in `/smarty-sql-server-plugin/SmartySqlServerPlugin/bin/Release/`
+7. Build the solution with MSBuild. The merged output file will appear in `/smarty-sql-server-plugin/src/plugin/bin/Release/`
 ```
 &'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe' -property:Configuration=Release
 ```

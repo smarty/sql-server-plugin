@@ -26,13 +26,15 @@ jobs:
       run: cd $GITHUB_WORKSPACE
       
     - name: Restore Packages
-      run: nuget restore SmartySqlServerPlugin.sln
+      run: nuget restore smarty-sql-server-plugin.sln
+      working-directory: .\src
       
     - name: Build Solution
       run: |
-       msbuild.exe SmartySqlServerPlugin.sln /p:configuration="Release" /p:platform="Any CPU" /p:OutputPath=.\output
-       
+       msbuild.exe smarty-sql-server-plugin.sln /p:configuration="Release" /p:platform="Any CPU" /p:OutputPath=.\output
+      working-directory: .\src
+      
     - name: release
       uses: softprops/action-gh-release@v1
       with:
-        files: D:/a/smarty-sql-server-plugin/smarty-sql-server-plugin/SmartySqlServerPlugin/output/SmartySqlServerPlugin-merged.dll
+        files: D:/a/smarty-sql-server-plugin/smarty-sql-server-plugin/src/plugin/output/SmartySqlServerPlugin-merged.dll
