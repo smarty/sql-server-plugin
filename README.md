@@ -366,6 +366,13 @@ Rebuilding the .dll can be accomplished by the following steps:
 
 NOTE: .NET Framework projects can only be built on Windows
 
+### With Visual Studio or Similar (ex. Rider)
+
+1. Install Visual Studio.
+2. Build the .sln file: `SmartySqlServerPlugin.sln`
+
+### Without Visual Studio
+
 1. Clone this repository
 
 ```
